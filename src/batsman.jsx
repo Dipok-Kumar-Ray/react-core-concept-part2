@@ -4,6 +4,7 @@ import { useState } from "react"
 export default function Batsman(){
     const[runs, setRuns] = useState(0)
     const [sixes, setSixes] = useState(0)
+    let [fours, setFours] = useState(0)
 
     const handleSingle = () => {
         const updateRuns = runs + 1;
@@ -12,6 +13,8 @@ export default function Batsman(){
 
     const handleFour = () => {
         const updateRuns = runs + 4;
+        const updateFours = fours + 1;
+        setFours = (updateFours);
         setRuns(updateRuns);
     }
 
@@ -21,15 +24,20 @@ export default function Batsman(){
         setSixes (updateSixes);
         setRuns(updateRuns);
     }
+    
     return(
         <div>
             <h3>Player : Bangla Batsman </h3>
 
             <p><small>Six : {sixes}</small></p>
+            <p><small>Four : {fours}</small></p>
 
 
             {
                 runs > 50 && <p>Your Score : 50</p>
+            }
+            {
+                runs > 100 && <p>Your Score : 100</p>
             }
 
 
